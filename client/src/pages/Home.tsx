@@ -224,7 +224,7 @@ function OrnamentCorners({ children, className = "", style }: { children: React.
 // ─── スタート画面 ──────────────────────────────────────────────────────────────
 function StartScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center justify-center p-8 text-center fade-in-up relative overflow-hidden" style={{ width: "100%" }}>
+    <div className="flex flex-col items-center justify-center p-8 text-center fade-in-up relative" style={{ width: "100%", height: "100%", overflow: "hidden" }}>
       {/* 背景装飾 */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-5"
@@ -307,9 +307,9 @@ function QuizScreen({
   const progress = ((currentIdx + 1) / total) * 100;
 
   return (
-    <div className="min-h-[100dvh] flex flex-col p-6 fade-in-up" style={{ width: "100%" }} key={currentIdx}>
+    <div className="fade-in-up" style={{ width: "100%", height: "100dvh", display: "flex", flexDirection: "column", padding: "16px 20px 20px", boxSizing: "border-box" }} key={currentIdx}>
       {/* ヘッダー */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center mb-4">
         <span className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/50%)] uppercase">
           Phase {currentIdx + 1} / {total}
         </span>
@@ -322,31 +322,32 @@ function QuizScreen({
         </div>
       </div>
 
-      {/* 質問テキスト */}
-      <div className="flex-1 flex flex-col justify-center">
-        <div className="mb-10">
-          <p className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/50%)] uppercase mb-4">
-            — Question —
-          </p>
-          <h2 className="font-display text-xl font-bold leading-relaxed text-[oklch(0.93_0.020_80)] min-h-[4em]">
-            {question.text}
-          </h2>
-        </div>
+      {/* 質問エリア */}
+      <div style={{ paddingTop: "8px", marginBottom: "12px" }}>
+        <p className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/50%)] uppercase mb-3">
+          — Question —
+        </p>
+        <h2 className="font-display text-lg font-bold leading-snug text-[oklch(0.93_0.020_80)]">
+          {question.text}
+        </h2>
+      </div>
 
+      {/* 回答ボタンエリア: flex-1で残り全体を埋める */}
+      <div style={{ flex: "1", display: "flex", flexDirection: "column" }}>
         <GoldDivider />
-
-        {/* 回答ボタン */}
-        <div className="space-y-3">
+        <div style={{ flex: "1", display: "flex", flexDirection: "column", gap: "8px" }}>
           {answerOptions.map((opt) => (
             <button
               key={opt.value}
               onClick={() => onAnswer(opt.value)}
-              className="w-full py-4 px-6 text-left font-serif text-sm transition-all duration-200 active:scale-[0.98] group"
+              className="w-full px-5 text-left font-serif text-sm transition-all duration-200 active:scale-[0.98]"
               style={{
+                flex: "1",
                 background: "oklch(0.14 0.018 20 / 80%)",
                 border: "1px solid oklch(0.75 0.095 75 / 15%)",
                 borderRadius: "0.375rem",
                 color: "oklch(0.85 0.020 80 / 80%)",
+                minHeight: "44px",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = "oklch(0.75 0.095 75 / 50%)";
@@ -382,7 +383,7 @@ function ResultScreen({
   const partnerImgSrc = typeImages[result.bestCode];
 
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center p-6 fade-in-up overflow-y-auto" style={{ width: "100%" }}>
+    <div className="flex flex-col items-center p-6 fade-in-up" style={{ width: "100%", height: "100%", overflowY: "auto" }}>
       <div className="w-full py-10">
 
         {/* タイプコード */}
@@ -561,18 +562,20 @@ type Step = "start" | "quiz" | "result";
 function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
-      minHeight: "100dvh",
+      height: "100dvh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       background: "oklch(0.08 0.012 20)",
+      overflow: "hidden",
     }}>
       <div style={{
         width: "100%",
         maxWidth: "480px",
-        flex: "1",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
+        overflow: "hidden",
       }}>
         {children}
       </div>
