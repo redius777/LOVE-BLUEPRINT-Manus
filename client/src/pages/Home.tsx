@@ -201,7 +201,7 @@ const typeData: Record<string, TypeInfo> = {
 // ─── 装飾コンポーネント ────────────────────────────────────────────────────────
 function GoldDivider() {
   return (
-    <div className="flex items-center gap-3 my-6">
+    <div className="flex items-center gap-3 my-2">
       <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[oklch(0.75_0.095_75/40%)]" />
       <span className="text-[oklch(0.75_0.095_75/60%)] text-xs">✦</span>
       <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[oklch(0.75_0.095_75/40%)]" />
