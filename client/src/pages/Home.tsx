@@ -6,26 +6,26 @@
  * - 羊皮紙テクスチャ・魔法陣モチーフ・金色装飾ライン
  */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-// ─── タイプ別画像URL（アップロード済みストレージパス） ───────────────────────
+// ─── タイプ別画像URL（精密切り出し版：イラスト＋名前テキスト込み） ───────────
 const typeImages: Record<string, string> = {
-  DIVS: "/manus-storage/DIVS_92d0151f.png",
-  DIVA: "/manus-storage/DIVA_ca42fa69.png",
-  DITS: "/manus-storage/DITS_eca4febb.png",
-  DITA: "/manus-storage/DITA_1fe64685.png",
-  DMVS: "/manus-storage/DMVS_87d5d5a7.png",
-  DMVA: "/manus-storage/DMVA_a51388df.png",
-  DMTS: "/manus-storage/DMTS_2a7a327f.png",
-  DMTA: "/manus-storage/DMTA_f4fd98aa.png",
-  RIVS: "/manus-storage/RIVS_99be26b6.png",
-  RIVA: "/manus-storage/RIVA_1a87242a.png",
-  RITS: "/manus-storage/RITS_b7814818.png",
-  RITA: "/manus-storage/RITA_bce1fcba.png",
-  RMVS: "/manus-storage/RMVS_9dc70094.png",
-  RMVA: "/manus-storage/RMVA_cf82755a.png",
-  RMTS: "/manus-storage/RMTS_9756dbbd.png",
-  RMTA: "/manus-storage/RMTA_90693d23.png",
+  DIVS: "/manus-storage/DIVS_79b7d383.png",
+  DIVA: "/manus-storage/DIVA_5eef1f30.png",
+  DITS: "/manus-storage/DITS_aa3a9904.png",
+  DITA: "/manus-storage/DITA_5bb99394.png",
+  DMVS: "/manus-storage/DMVS_a905813f.png",
+  DMVA: "/manus-storage/DMVA_afc2f787.png",
+  DMTS: "/manus-storage/DMTS_efa6fe42.png",
+  DMTA: "/manus-storage/DMTA_a7c1e47b.png",
+  RIVS: "/manus-storage/RIVS_54a21170.png",
+  RIVA: "/manus-storage/RIVA_af3543a8.png",
+  RITS: "/manus-storage/RITS_46a016f4.png",
+  RITA: "/manus-storage/RITA_c0419f38.png",
+  RMVS: "/manus-storage/RMVS_57445798.png",
+  RMVA: "/manus-storage/RMVA_659fe988.png",
+  RMTS: "/manus-storage/RMTS_9ab717d1.png",
+  RMTA: "/manus-storage/RMTA_7a07d019.png",
 };
 
 // ─── 質問データ ────────────────────────────────────────────────────────────────
@@ -404,20 +404,33 @@ function ResultScreen({
           </h1>
         </div>
 
-        {/* キャラクター画像 */}
-        <OrnamentCorners className="mb-8 p-3"
+        {/* キャラクター画像（イラスト＋名前テキストが完全に入るように表示） */}
+        <div className="mb-8 relative"
           style={{
             background: "oklch(0.12 0.018 20)",
-            border: "1px solid oklch(0.75 0.095 75 / 30%)",
+            border: "1px solid oklch(0.75 0.095 75 / 35%)",
             borderRadius: "0.75rem",
-          } as React.CSSProperties}>
+            padding: "10px",
+            boxShadow: "0 0 40px oklch(0.75 0.095 75 / 12%), 0 8px 32px rgba(0,0,0,0.6)",
+          }}>
+          {/* 角装飾 */}
+          <span className="absolute top-2 left-2 text-[oklch(0.75_0.095_75/40%)] text-[10px] leading-none z-10">✦</span>
+          <span className="absolute top-2 right-2 text-[oklch(0.75_0.095_75/40%)] text-[10px] leading-none z-10">✦</span>
+          <span className="absolute bottom-2 left-2 text-[oklch(0.75_0.095_75/40%)] text-[10px] leading-none z-10">✦</span>
+          <span className="absolute bottom-2 right-2 text-[oklch(0.75_0.095_75/40%)] text-[10px] leading-none z-10">✦</span>
+          {/* 画像：object-containで全体を切れずに表示 */}
           <img
             src={imgSrc}
             alt={result.name}
-            className="w-full rounded-lg object-cover"
-            style={{ display: "block" }}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              borderRadius: "0.5rem",
+              objectFit: "contain",
+            }}
           />
-        </OrnamentCorners>
+        </div>
 
         {/* プロファイル */}
         <div className="mb-6 p-6 relative"
@@ -491,8 +504,8 @@ function ResultScreen({
           </p>
 
           <div className="flex items-center gap-4 mb-4">
-            {/* パートナー画像サムネイル */}
-            <div className="w-16 h-16 flex-shrink-0 overflow-hidden"
+            {/* パートナー画像サムネイル（イラスト＋名前テキスト全体） */}
+            <div className="w-20 flex-shrink-0 overflow-hidden"
               style={{
                 border: "1px solid oklch(0.75 0.095 75 / 40%)",
                 borderRadius: "0.375rem",
@@ -500,7 +513,7 @@ function ResultScreen({
               <img
                 src={partnerImgSrc}
                 alt={result.bestName}
-                className="w-full h-full object-cover object-top"
+                style={{ display: "block", width: "100%", height: "auto", objectFit: "contain" }}
               />
             </div>
             <div>
