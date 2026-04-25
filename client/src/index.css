@@ -80,6 +80,18 @@
     font-family: var(--font-serif);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    /* PC対応: 画面全体を中央対称に */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: oklch(0.08 0.012 20);
+  }
+  #root {
+    width: 100%;
+    max-width: 480px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
