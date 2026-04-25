@@ -1,3 +1,10 @@
+/* =============================================================
+   LOVE BLUEPRINT — Dark Academia Romance Design System
+   Design Movement: Dark Academia × Gothic Romanticism
+   Color Philosophy: 深みのある暗色背景に古金色の装飾、羊皮紙クリームのテキスト
+   Typography: Playfair Display (見出し) + Noto Serif JP (本文) + Cinzel Decorative (ラベル)
+   ============================================================= */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -27,90 +34,41 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-parchment: var(--parchment);
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  --radius: 0.5rem;
+
+  /* Dark Academia Palette */
+  --background: oklch(0.10 0.015 20);          /* #0D0A0B — 深紅を帯びた黒 */
+  --foreground: oklch(0.93 0.020 80);           /* #F5ECD7 — 羊皮紙クリーム */
+  --card: oklch(0.14 0.018 20);                 /* やや明るい暗色カード */
+  --card-foreground: oklch(0.93 0.020 80);
+  --popover: oklch(0.14 0.018 20);
+  --popover-foreground: oklch(0.93 0.020 80);
+  --primary: oklch(0.75 0.095 75);              /* #C9A84C — 古金色 */
+  --primary-foreground: oklch(0.10 0.015 20);
+  --secondary: oklch(0.18 0.020 20);
+  --secondary-foreground: oklch(0.85 0.020 80);
+  --muted: oklch(0.18 0.015 20);
+  --muted-foreground: oklch(0.60 0.025 75);
+  --accent: oklch(0.20 0.025 20);
+  --accent-foreground: oklch(0.75 0.095 75);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
+  --border: oklch(0.75 0.095 75 / 20%);        /* 金色の薄いボーダー */
+  --input: oklch(0.18 0.020 20);
+  --ring: oklch(0.75 0.095 75 / 50%);
+  --gold: oklch(0.75 0.095 75);
+  --parchment: oklch(0.93 0.020 80);
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  /* Custom font variables */
+  --font-display: 'Playfair Display', 'Noto Serif JP', serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-label: 'Cinzel Decorative', serif;
+  --font-body: 'Cormorant Garamond', 'Noto Serif JP', serif;
 }
 
 @layer base {
@@ -119,6 +77,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-serif);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -134,24 +95,11 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -162,16 +110,88 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
+  }
+
+  /* Dark Academia custom components */
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-label {
+    font-family: var(--font-label);
+  }
+  .font-body-serif {
+    font-family: var(--font-body);
+  }
+
+  /* Gold ornament border */
+  .gold-border {
+    border: 1px solid oklch(0.75 0.095 75 / 30%);
+  }
+  .gold-border-strong {
+    border: 1px solid oklch(0.75 0.095 75 / 60%);
+  }
+
+  /* Parchment texture overlay */
+  .parchment-overlay {
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, oklch(0.75 0.095 75 / 3%) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.75 0.095 75 / 2%) 0%, transparent 50%);
+  }
+
+  /* Corner ornament */
+  .corner-ornament {
+    position: relative;
+  }
+  .corner-ornament::before,
+  .corner-ornament::after {
+    content: '✦';
+    position: absolute;
+    color: oklch(0.75 0.095 75 / 40%);
+    font-size: 0.5rem;
+  }
+  .corner-ornament::before {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+  .corner-ornament::after {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+
+  /* Fade in animation */
+  .fade-in-up {
+    animation: fadeInUp 0.5s ease-out both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Glow pulse for gold elements */
+  .gold-glow {
+    text-shadow: 0 0 20px oklch(0.75 0.095 75 / 40%);
+  }
+
+  /* Card with dark glass effect */
+  .dark-card {
+    background: oklch(0.14 0.018 20 / 90%);
+    backdrop-filter: blur(8px);
+    border: 1px solid oklch(0.75 0.095 75 / 20%);
+  }
+
+  /* Progress bar gold */
+  .progress-gold {
+    background: linear-gradient(90deg, oklch(0.65 0.095 75), oklch(0.80 0.095 75), oklch(0.65 0.095 75));
   }
 }
