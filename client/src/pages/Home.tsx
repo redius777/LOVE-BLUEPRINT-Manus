@@ -8,24 +8,24 @@
 
 import { useState } from "react";
 
-// ─── タイプ別画像URL（精密切り出し版：イラスト＋名前テキスト込み） ───────────
+// ─── タイプ別画像URL（余白トリム済み精密切り出し版） ────────────────────
 const typeImages: Record<string, string> = {
-  DIVS: "/manus-storage/DIVS_79b7d383.png",
-  DIVA: "/manus-storage/DIVA_5eef1f30.png",
-  DITS: "/manus-storage/DITS_aa3a9904.png",
-  DITA: "/manus-storage/DITA_5bb99394.png",
-  DMVS: "/manus-storage/DMVS_a905813f.png",
-  DMVA: "/manus-storage/DMVA_afc2f787.png",
-  DMTS: "/manus-storage/DMTS_efa6fe42.png",
-  DMTA: "/manus-storage/DMTA_a7c1e47b.png",
-  RIVS: "/manus-storage/RIVS_54a21170.png",
-  RIVA: "/manus-storage/RIVA_af3543a8.png",
-  RITS: "/manus-storage/RITS_46a016f4.png",
-  RITA: "/manus-storage/RITA_c0419f38.png",
-  RMVS: "/manus-storage/RMVS_57445798.png",
-  RMVA: "/manus-storage/RMVA_659fe988.png",
-  RMTS: "/manus-storage/RMTS_9ab717d1.png",
-  RMTA: "/manus-storage/RMTA_7a07d019.png",
+  DIVS: "/manus-storage/DIVS_c6f869d6.png",
+  DIVA: "/manus-storage/DIVA_a18458ae.png",
+  DITS: "/manus-storage/DITS_4ee784f5.png",
+  DITA: "/manus-storage/DITA_484a857f.png",
+  DMVS: "/manus-storage/DMVS_efc375d9.png",
+  DMVA: "/manus-storage/DMVA_04dfb3b6.png",
+  DMTS: "/manus-storage/DMTS_0870fea7.png",
+  DMTA: "/manus-storage/DMTA_17f83879.png",
+  RIVS: "/manus-storage/RIVS_bc48406b.png",
+  RIVA: "/manus-storage/RIVA_f2aca41c.png",
+  RITS: "/manus-storage/RITS_b86f1364.png",
+  RITA: "/manus-storage/RITA_f4cb4725.png",
+  RMVS: "/manus-storage/RMVS_1600ed78.png",
+  RMVA: "/manus-storage/RMVA_a8b9a3f7.png",
+  RMTS: "/manus-storage/RMTS_5d85a058.png",
+  RMTA: "/manus-storage/RMTA_fec9be88.png",
 };
 
 // ─── 質問データ ────────────────────────────────────────────────────────────────
@@ -499,16 +499,17 @@ function ResultScreen({
           <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none"
             style={{ background: "radial-gradient(circle, oklch(0.75 0.095 75) 0%, transparent 70%)" }} />
 
-          <p className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/60%)] uppercase mb-4">
+          <p className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/60%)] uppercase mb-5">
             — Best Partner —
           </p>
 
-          <div className="flex items-center gap-4 mb-4">
-            {/* パートナー画像サムネイル（イラスト＋名前テキスト全体） */}
-            <div className="w-20 flex-shrink-0 overflow-hidden"
+          {/* パートナー画像：タイトル直下に画像、その下に名前 */}
+          <div className="flex flex-col items-center mb-4">
+            <div className="w-full overflow-hidden mb-3"
               style={{
                 border: "1px solid oklch(0.75 0.095 75 / 40%)",
-                borderRadius: "0.375rem",
+                borderRadius: "0.5rem",
+                maxWidth: "280px",
               }}>
               <img
                 src={partnerImgSrc}
@@ -516,14 +517,12 @@ function ResultScreen({
                 style={{ display: "block", width: "100%", height: "auto", objectFit: "contain" }}
               />
             </div>
-            <div>
-              <p className="font-display text-xl font-bold text-[oklch(0.93_0.020_80)] leading-tight">
-                {result.bestName}
-              </p>
-              <p className="font-label text-[10px] tracking-[0.3em] text-[oklch(0.75_0.095_75/70%)] mt-1">
-                {result.bestCode}
-              </p>
-            </div>
+            <p className="font-display text-xl font-bold text-[oklch(0.93_0.020_80)] leading-tight text-center">
+              {result.bestName}
+            </p>
+            <p className="font-label text-[10px] tracking-[0.3em] text-[oklch(0.75_0.095_75/70%)] mt-1 text-center">
+              {result.bestCode}
+            </p>
           </div>
 
           <GoldDivider />
