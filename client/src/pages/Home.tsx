@@ -383,7 +383,7 @@ function ResultScreen({
   const partnerImgSrc = typeImages[result.bestCode];
 
   return (
-    <div className="flex flex-col items-center p-6 fade-in-up" style={{ width: "100%", height: "100%", overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}>
+    <div className="flex flex-col items-center p-6 fade-in-up" style={{ width: "100%" }}>
       <div className="w-full py-10">
 
         {/* タイプコード */}
@@ -559,23 +559,23 @@ function ResultScreen({
 type Step = "start" | "quiz" | "result";
 
 // ─── PC対応：中央コンパクトラッパー ──────────────────────────────────────────
-function AppShell({ children }: { children: React.ReactNode }) {
+function AppShell({ children, scrollable = false }: { children: React.ReactNode; scrollable?: boolean }) {
   return (
     <div style={{
-      height: "100dvh",
+      minHeight: "100dvh",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       background: "oklch(0.08 0.012 20)",
-      overflow: "hidden",
+      overflow: scrollable ? "visible" : "hidden",
     }}>
       <div style={{
         width: "100%",
         maxWidth: "480px",
-        height: "100%",
+        height: scrollable ? "auto" : "100dvh",
         display: "flex",
         flexDirection: "column",
-        overflow: "hidden",
+        overflow: scrollable ? "visible" : "hidden",
       }}>
         {children}
       </div>
@@ -644,7 +644,7 @@ export default function Home() {
 
   const result = typeData[typeCode];
   return (
-    <AppShell>
+    <AppShell scrollable>
       <ResultScreen
         typeCode={typeCode}
         result={result}
