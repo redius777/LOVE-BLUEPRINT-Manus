@@ -224,7 +224,7 @@ function OrnamentCorners({ children, className = "", style }: { children: React.
 // ─── スタート画面 ──────────────────────────────────────────────────────────────
 function StartScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center justify-center p-8 text-center fade-in-up relative overflow-hidden">
+    <div className="min-h-[100dvh] flex flex-col items-center justify-center p-8 text-center fade-in-up relative overflow-hidden w-full">
       {/* 背景装飾 */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-5"
@@ -307,7 +307,7 @@ function QuizScreen({
   const progress = ((currentIdx + 1) / total) * 100;
 
   return (
-    <div className="min-h-[100dvh] flex flex-col p-6 fade-in-up" key={currentIdx}>
+    <div className="min-h-[100dvh] flex flex-col p-6 fade-in-up w-full" key={currentIdx}>
       {/* ヘッダー */}
       <div className="flex justify-between items-center mb-8">
         <span className="font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/50%)] uppercase">
@@ -382,8 +382,8 @@ function ResultScreen({
   const partnerImgSrc = typeImages[result.bestCode];
 
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center p-6 fade-in-up overflow-y-auto">
-      <div className="max-w-md w-full py-10">
+    <div className="min-h-[100dvh] flex flex-col items-center p-6 fade-in-up overflow-y-auto w-full">
+      <div className="w-full py-10">
 
         {/* タイプコード */}
         <div className="text-center mb-8">
@@ -557,6 +557,18 @@ function ResultScreen({
 // ─── メインアプリ ──────────────────────────────────────────────────────────────
 type Step = "start" | "quiz" | "result";
 
+// ─── PC対応：中央コンパクトラッパー ──────────────────────────────────────────
+function AppShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-[100dvh] flex flex-col items-center"
+      style={{ background: "oklch(0.08 0.012 20)" }}>
+      <div className="w-full" style={{ maxWidth: "480px" }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [step, setStep] = useState<Step>("start");
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -600,26 +612,30 @@ export default function Home() {
   };
 
   if (step === "start") {
-    return <StartScreen onStart={startQuiz} />;
+    return <AppShell><StartScreen onStart={startQuiz} /></AppShell>;
   }
 
   if (step === "quiz") {
     return (
-      <QuizScreen
-        question={randomQuestions[currentIdx]}
-        currentIdx={currentIdx}
-        total={randomQuestions.length}
-        onAnswer={handleAnswer}
-      />
+      <AppShell>
+        <QuizScreen
+          question={randomQuestions[currentIdx]}
+          currentIdx={currentIdx}
+          total={randomQuestions.length}
+          onAnswer={handleAnswer}
+        />
+      </AppShell>
     );
   }
 
   const result = typeData[typeCode];
   return (
-    <ResultScreen
-      typeCode={typeCode}
-      result={result}
-      onRestart={handleRestart}
-    />
+    <AppShell>
+      <ResultScreen
+        typeCode={typeCode}
+        result={result}
+        onRestart={handleRestart}
+      />
+    </AppShell>
   );
 }
