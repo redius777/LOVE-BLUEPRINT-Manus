@@ -383,7 +383,7 @@ function ResultScreen({
   const partnerImgSrc = typeImages[result.bestCode];
 
   return (
-    <div className="flex flex-col items-center p-6 fade-in-up" style={{ width: "100%", height: "100%", overflowY: "auto" }}>
+    <div className="flex flex-col items-center p-6 fade-in-up" style={{ width: "100%", height: "100%", overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}>
       <div className="w-full py-10">
 
         {/* タイプコード */}
