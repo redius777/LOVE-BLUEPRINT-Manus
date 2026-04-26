@@ -10,22 +10,22 @@ import { useState } from "react";
 
 // ─── タイプ別画像URL（余白トリム済み精密切り出し版） ────────────────────
 const typeImages: Record<string, string> = {
-  DIVS: "/manus-storage/DIVS_148bdf2a.png",
-  DIVA: "/manus-storage/DIVA_cd959347.png",
-  DITS: "/manus-storage/DITS_6a48c76d.png",
-  DITA: "/manus-storage/DITA_339ee401.png",
-  DMVS: "/manus-storage/DMVS_e92fbb93.png",
-  DMVA: "/manus-storage/DMVA_28bbb074.png",
-  DMTS: "/manus-storage/DMTS_1dd078aa.png",
-  DMTA: "/manus-storage/DMTA_06156bb0.png",
-  RIVS: "/manus-storage/RIVS_c11fdacc.png",
-  RIVA: "/manus-storage/RIVA_b650d7ff.png",
-  RITS: "/manus-storage/RITS_998494a1.png",
-  RITA: "/manus-storage/RITA_1838e4b5.png",
-  RMVS: "/manus-storage/RMVS_3e3ba8b8.png",
-  RMVA: "/manus-storage/RMVA_5c259647.png",
-  RMTS: "/manus-storage/RMTS_64640813.png",
-  RMTA: "/manus-storage/RMTA_4609ac2e.png",
+  DIVS: "/manus-storage/DIVS_3f10a61e.png",
+  DIVA: "/manus-storage/DIVA_6b831b04.png",
+  DITS: "/manus-storage/DITS_3445d03a.png",
+  DITA: "/manus-storage/DITA_f1114239.png",
+  DMVS: "/manus-storage/DMVS_bb1405e0.png",
+  DMVA: "/manus-storage/DMVA_60bd2494.png",
+  DMTS: "/manus-storage/DMTS_c3fbecd6.png",
+  DMTA: "/manus-storage/DMTA_6ebc4334.png",
+  RIVS: "/manus-storage/RIVS_90c26005.png",
+  RIVA: "/manus-storage/RIVA_cecd653b.png",
+  RITS: "/manus-storage/RITS_d366b353.png",
+  RITA: "/manus-storage/RITA_ba45cc26.png",
+  RMVS: "/manus-storage/RMVS_b6892e41.png",
+  RMVA: "/manus-storage/RMVA_4b36ba5d.png",
+  RMTS: "/manus-storage/RMTS_bf1063c0.png",
+  RMTA: "/manus-storage/RMTA_b47c43ab.png",
 };
 
 // ─── 質問データ ────────────────────────────────────────────────────────────────
