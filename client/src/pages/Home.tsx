@@ -7,6 +7,7 @@
  */
 
 import { useState } from "react";
+import { ShareButton } from "@/components/ShareCard";
 
 // ─── タイプ別画像URL（余白トリム済み精密切り出し版） ────────────────────
 const typeImages: Record<string, string> = {
@@ -533,8 +534,17 @@ function ResultScreen({
           </p>
         </div>
 
-        {/* リスタートボタン */}
+        {/* シェア & リスタートボタン */}
         <div className="space-y-4 px-2">
+          {/* シェア画像生成ボタン */}
+          <ShareButton
+            typeCode={typeCode}
+            typeName={result.name}
+            imgSrc={imgSrc}
+            bestCode={result.bestCode}
+            bestName={result.bestName}
+            partnerImgSrc={partnerImgSrc}
+          />
           <button
             onClick={onRestart}
             className="w-full py-4 font-label text-sm tracking-[0.3em] uppercase transition-all duration-300 active:scale-95"
