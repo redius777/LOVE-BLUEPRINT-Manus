@@ -84,16 +84,23 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-serif);
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
     /* PC対応: 画面全体を中央対称に */
     display: flex;
     flex-direction: column;
     align-items: center;
     background: oklch(0.08 0.012 20);
+    min-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   #root {
     width: 100%;

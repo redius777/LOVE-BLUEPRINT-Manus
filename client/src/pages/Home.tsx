@@ -224,7 +224,7 @@ function OrnamentCorners({ children, className = "", style }: { children: React.
 // ─── スタート画面 ──────────────────────────────────────────────────────────────
 function StartScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="flex flex-col items-center justify-center p-8 text-center fade-in-up relative" style={{ width: "100%", height: "100%", overflow: "hidden" }}>
+    <div className="flex flex-col items-center justify-center p-8 text-center fade-in-up relative" style={{ width: "100%", height: "100%", overflowX: "hidden" }}>
       {/* 背景装飾 */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-5"
@@ -567,15 +567,17 @@ function AppShell({ children, scrollable = false }: { children: React.ReactNode;
       flexDirection: "column",
       alignItems: "center",
       background: "oklch(0.08 0.012 20)",
-      overflow: scrollable ? "visible" : "hidden",
     }}>
       <div style={{
         width: "100%",
         maxWidth: "480px",
+        minHeight: scrollable ? "auto" : "100dvh",
         height: scrollable ? "auto" : "100dvh",
         display: "flex",
         flexDirection: "column",
-        overflow: scrollable ? "visible" : "hidden",
+        overflowX: "hidden",
+        overflowY: scrollable ? "auto" : "hidden",
+        WebkitOverflowScrolling: "touch",
       }}>
         {children}
       </div>
