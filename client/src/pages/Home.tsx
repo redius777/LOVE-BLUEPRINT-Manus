@@ -7,6 +7,7 @@
  */
 
 import { useState } from "react";
+import { Link } from "wouter";
 import { ShareButton } from "@/components/ShareCard";
 
 // ─── タイプ別画像URL（余白トリム済み精密切り出し版） ────────────────────
@@ -556,6 +557,19 @@ function ResultScreen({
             }}>
             もう一度診断する
           </button>
+          {/* 全タイプ図鑑ボタン */}
+          <Link href="/library">
+            <button
+              className="w-full py-4 font-label text-sm tracking-[0.3em] uppercase transition-all duration-300 active:scale-95"
+              style={{
+                background: "linear-gradient(135deg, oklch(0.18 0.025 20), oklch(0.14 0.018 20))",
+                border: "1px solid oklch(0.75 0.095 75 / 40%)",
+                borderRadius: "0.25rem",
+                color: "oklch(0.75 0.095 75)",
+              }}>
+              ✨ 全タイプ図鑑を見る
+            </button>
+          </Link>
           <p className="text-center font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/25%)] uppercase">
             Love Blueprint Analysis v1.0
           </p>
