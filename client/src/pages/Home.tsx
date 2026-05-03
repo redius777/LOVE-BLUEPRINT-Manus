@@ -10,6 +10,10 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { ShareButton } from "@/components/ShareCard";
 
+// ─── 外部リンクURL設定（変更時はここだけ修正） ─────────────────────────────────────
+// TODO: 公式LINEのURLが渡されたら以下に設定する
+const LINE_OFFICIAL_URL = "https://lin.ee/XXXXXXX"; // ← 実際URLに差し替える
+
 // ─── タイプ別画像URL（余白トリム済み精密切り出し版） ────────────────────
 const typeImages: Record<string, string> = {
   DIVS: "/manus-storage/DIVS_3f10a61e.png",
@@ -570,6 +574,94 @@ function ResultScreen({
               ✨ 全タイプ図鑑を見る
             </button>
           </Link>
+
+          {/* 公式LINE誘導ボタン */}
+          <a
+            href={LINE_OFFICIAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "block", textDecoration: "none" }}
+          >
+            <button
+              className="w-full font-label tracking-[0.15em] transition-all duration-300 active:scale-95"
+              style={{
+                padding: "0",
+                border: "none",
+                borderRadius: "0.375rem",
+                background: "transparent",
+                cursor: "pointer",
+                width: "100%",
+              }}
+            >
+              {/* 光る枠付きカードデザイン */}
+              <div
+                style={{
+                  position: "relative",
+                  padding: "20px 24px",
+                  borderRadius: "0.375rem",
+                  background: "linear-gradient(135deg, rgba(6,199,85,0.12) 0%, rgba(6,199,85,0.06) 50%, rgba(6,199,85,0.10) 100%)",
+                  border: "1px solid rgba(6,199,85,0.45)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* 光泊効果 */}
+                <div style={{
+                  position: "absolute",
+                  top: "-30px", left: "-30px",
+                  width: "120px", height: "120px",
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(6,199,85,0.15) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }} />
+                <div style={{
+                  position: "absolute",
+                  bottom: "-20px", right: "-20px",
+                  width: "80px", height: "80px",
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(6,199,85,0.10) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }} />
+
+                {/* ラベル */}
+                <p style={{
+                  fontFamily: "'Cinzel Decorative', serif",
+                  fontSize: "8px",
+                  letterSpacing: "0.4em",
+                  color: "rgba(6,199,85,0.70)",
+                  textTransform: "uppercase",
+                  margin: "0 0 8px",
+                  textAlign: "center",
+                }}>— Official LINE —</p>
+
+                {/* メインテキスト */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
+                  {/* LINEアイコン */}
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.64 5.78 4.17 7.5-.18.64-.65 2.3-.75 2.66-.12.44.16.44.34.32.14-.09 1.85-1.22 2.6-1.72.5.07 1.01.1 1.54.1 5.52 0 10-4.03 10-9S17.52 2 12 2z" fill="rgba(6,199,85,0.90)"/>
+                  </svg>
+                  <span style={{
+                    fontFamily: "'Noto Serif JP', serif",
+                    fontSize: "15px",
+                    fontWeight: 700,
+                    color: "rgba(230,255,235,0.95)",
+                    letterSpacing: "0.05em",
+                  }}>この診断の本当の意味を知る</span>
+                </div>
+
+                {/* サブテキスト */}
+                <p style={{
+                  fontFamily: "'Noto Serif JP', serif",
+                  fontSize: "11px",
+                  color: "rgba(180,240,195,0.65)",
+                  margin: "10px 0 0",
+                  textAlign: "center",
+                  lineHeight: 1.6,
+                  fontStyle: "italic",
+                }}>診断結果の裏側にある、本当のあなたへ</p>
+              </div>
+            </button>
+          </a>
+
           <p className="text-center font-label text-[9px] tracking-[0.3em] text-[oklch(0.75_0.095_75/25%)] uppercase">
             Love Blueprint Analysis v1.0
           </p>
