@@ -618,6 +618,42 @@ export default function TypeLibrary() {
                   </p>
                 </div>
               )}
+
+              {/* 一覧に戻るボタン */}
+              <div style={{ marginTop: "28px", paddingBottom: "8px" }}>
+                <button
+                  onClick={() => setSelected(null)}
+                  style={{
+                    width: "100%",
+                    padding: "16px 0",
+                    fontFamily: "'Cinzel Decorative', serif",
+                    fontSize: "11px",
+                    letterSpacing: "0.35em",
+                    textTransform: "uppercase",
+                    border: `1px solid ${goldFaint}`,
+                    borderRadius: "6px",
+                    background: "rgba(201,168,76,0.08)",
+                    color: gold,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    transition: "background 0.2s, border-color 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,168,76,0.16)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.65)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,168,76,0.08)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(201,168,76,0.35)";
+                  }}
+                >
+                  <span style={{ fontSize: "14px", lineHeight: 1 }}>‹‹</span>
+                  一覧に戻る
+                </button>
+              </div>
             </div>
           </div>
         </div>
