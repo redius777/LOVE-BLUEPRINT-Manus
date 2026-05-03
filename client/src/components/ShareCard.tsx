@@ -6,6 +6,7 @@
 
 import { useRef, useState, useCallback } from "react";
 import html2canvas from "html2canvas";
+import { SITE_URL, buildShareText } from "@/config/links";
 
 interface ShareCardProps {
   typeCode: string;
@@ -284,7 +285,7 @@ export function ShareButton(props: ShareCardProps) {
   };
 
   const shareText = `私のLOVE BLUEPRINTは「${props.typeName}（${props.typeCode}）」でした！\nベストパートナーは「${props.bestName}（${props.bestCode}）」✦\n#LOVEBLUEPRINT #感性の設計図`;
-  const siteUrl = props.siteUrl || "https://loveapp-mwrkg5cp.manus.space";
+  const siteUrl = props.siteUrl || SITE_URL;
 
   const handleXShare = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(siteUrl)}`;
